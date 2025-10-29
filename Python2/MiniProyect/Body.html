@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Raciones de Comida</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculador de Raciones de Comida</h1>
+            <p class="subtitle">Calcula las cantidades exactas de ingredientes considerando las pérdidas</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Configuración</h2>
+                
+                <div class="form-group">
+                    <label for="people">Número de Personas:</label>
+                    <input type="number" id="people" min="1" value="500">
+                </div>
+                
+                <div class="form-group">
+                    <label for="lossPercentage">Porcentaje de Pérdidas (%):</label>
+                    <input type="number" id="lossPercentage" min="0" max="100" value="5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fixedLoss">Pérdida Fija (kg):</label>
+                    <input type="number" id="fixedLoss" min="0" step="0.1" value="5">
+                </div>
+                
+                <h2>Selecciona una Receta</h2>
+                
+                <div id="recipes-list">
+                    <div class="recipe-item selected" data-recipe="arroz">
+                        <div class="recipe-title">Arroz Blanco</div>
+                        <div class="recipe-desc">Arroz, agua, sal, aceite</div>
+                    </div>
+                    
+                    <div class="recipe-item" data-recipe="pollo">
+                        <div class="recipe-title">Pollo Guisado</div>
+                        <div class="recipe-desc">Pollo, verduras, especias</div>
+                    </div>
+                    
+                    <div class="recipe-item" data-recipe="pasta">
+                        <div class="recipe-title">Pasta con Salsa</div>
+                        <div class="recipe-desc">Pasta, tomate, cebolla, ajo</div>
+                    </div>
+                    
+                    <div class="recipe-item" data-recipe="ensalada">
+                        <div class="recipe-title">Ensalada Mixta</div>
+                        <div class="recipe-desc">Lechuga, tomate, cebolla, aderezo</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button id="calculate-btn">Calcular Raciones</button>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Calculando...</p>
+                </div>
+            </div>
+            
+            <div class="output-section">
+                <h2>Resultados</h2>
+                
+                <div id="results">
+                    <div class="result-card">
+                        <p class="info-text">Los resultados aparecerán aquí después de calcular.</p>
+                    </div>
+                </div>
+                
+                <div class="summary">
+                    <div class="summary-title">Resumen</div>
+                    <div class="total-row">
+                        <span>Total Personas:</span>
+                        <span id="total-people">0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Pérdidas Totales:</span>
+                        <span id="total-loss">0 kg</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Ingredientes Totales:</span>
+                        <span id="total-ingredients">0 kg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Script.js"></script>
+</body>
+</html>
